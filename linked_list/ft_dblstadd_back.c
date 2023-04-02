@@ -6,9 +6,11 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 18:02:27 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 18:05:47 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/02 18:20:52 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../minishell.h"
 
 void	ft_dblstadd_back(t_db_list **db_lst, char *data)
 {

@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 03:17:01 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 04:17:36 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/02 18:29:38 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,15 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 }
 
 // utile pour chercher les built-in, le split est utile pour chercher dans chaque truc petit a petit
-char **search_path(char *search, t_mini_struct glo_shell)
+char **search_path(char *search, char **env)
 {
     int i;
     int j;
     int size_search;
-	char **env;
 
     i = 0;
     j = 0;
     size_search = ft_strlen(search);
-	env = glo_shell.env;
     while(env[j][i])
     {
         if(ft_strncmp(env[j], search, size_search) != 0)
@@ -58,5 +56,5 @@ char **search_path(char *search, t_mini_struct glo_shell)
         else
             break;
     }
-    return(ft_split(glo_shell.env[j], ':'));
+    return(ft_split(env[j], ':'));
 }

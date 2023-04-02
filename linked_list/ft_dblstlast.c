@@ -6,9 +6,11 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 18:02:11 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 18:05:24 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/02 18:20:50 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../minishell.h"
 
 t_db_list	*ft_dblstlast(t_db_list *db_lst)
 {
