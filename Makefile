@@ -1,11 +1,10 @@
-MINISHELL = main.c \
+MINISHELL = main.c utils/ft_split.c utils/ft_strlen.c utils/search_path.c
 			
-
 CC = @gcc
 
 FLAGS = -Wall -Werror -Wextra
 
-MINISHELL_NAME = philo
+MINISHELL_NAME = minishell
 
 MINISHELL_SRC = $(MINISHELL)
 
