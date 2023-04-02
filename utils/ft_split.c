@@ -6,13 +6,13 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 03:23:30 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 04:12:43 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/03 00:48:29 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static void	freebox(char **db_tab)
+void	freebox(char **db_tab)
 {
 	int	i;
 
@@ -48,7 +48,7 @@ static int	countword(char const *s, char c)
 	return (nb_word);
 }
 
-static char	*insert_word(char const *s, char c, size_t i, size_t j)
+static char	*insert_word(char const *s, char c, int i, int j)
 {
 	char	*word;
 
@@ -80,8 +80,8 @@ static char	*insert_word(char const *s, char c, size_t i, size_t j)
 static char	**ft_split_extand(char const *s, char **db_tab, char c,
 		int countwordd)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

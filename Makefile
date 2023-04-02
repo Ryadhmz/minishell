@@ -9,9 +9,9 @@ MINISHELL = main.c \
 			linked_list/ft_dblstnew.c \
 			linked_list/ft_db_first_node.c
 			
-CC = gcc -g
+CC = @gcc
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -lreadline -Wall -Werror -Wextra
 
 MINISHELL_NAME = minishell
 

@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 18:56:26 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/03 01:00:59 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 typedef struct db_linked_list
 {
@@ -35,6 +37,8 @@ t_mini_struct g_ms;
 // utils
 
 char	**ft_split(char const *s, char c);
+char	**ft_split_boost(char *s);
+void	freebox(char **db_tab);
 char **search_path(char *search, char **env);
 int ft_strlen(const char *str);
 
