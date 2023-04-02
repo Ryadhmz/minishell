@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_dblstnew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 17:58:25 by rhamza           ###   ########.fr       */
+/*   Created: 2023/04/02 18:00:39 by rhamza            #+#    #+#             */
+/*   Updated: 2023/04/02 18:05:26 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
-void set_arg_struct(char **env)
+t_db_list	*ft_dblstnew(char *data)
 {
-    g_ms.env = env;
-    g_ms.split_path = search_path("PATH", g_ms);
-}
+	t_db_list	*cell;
 
-int main(int argc, char **argv, char **env)
-{
-    set_arg_struct(env);
-    return (0);
+	cell = malloc(sizeof(t_db_list));
+	if (!cell)
+		exit(1);
+	cell->data = data;
+	cell->next = NULL;
+	cell->past = NULL;
+	return (cell);
 }

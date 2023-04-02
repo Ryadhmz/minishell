@@ -1,4 +1,4 @@
-MINISHELL = main.c utils/ft_split.c utils/ft_strlen.c utils/search_path.c
+MINISHELL = main.c utils/ft_split.c utils/ft_strlen.c utils/search_path.c built-in/pwd.c
 			
 CC = @gcc
 

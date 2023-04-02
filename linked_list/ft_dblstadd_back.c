@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_dblstadd_back.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 17:58:25 by rhamza           ###   ########.fr       */
+/*   Created: 2023/04/02 18:02:27 by rhamza            #+#    #+#             */
+/*   Updated: 2023/04/02 18:05:47 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
-void set_arg_struct(char **env)
+void	ft_dblstadd_back(t_db_list **db_lst, char *data)
 {
-    g_ms.env = env;
-    g_ms.split_path = search_path("PATH", g_ms);
-}
+	t_db_list	*cur;
+	t_db_list	*save_new;
 
-int main(int argc, char **argv, char **env)
-{
-    set_arg_struct(env);
-    return (0);
+	if (*db_lst == NULL)
+		*db_lst = ft_dblstnew(data);
+	else
+	{
+		cur = ft_dblstlast(*db_lst);
+		cur->next = ft_dblstnew(data);
+		save_new = cur->next;
+		save_new->past = cur;
+	}
 }

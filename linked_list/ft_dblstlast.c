@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_dblstlast.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 17:58:25 by rhamza           ###   ########.fr       */
+/*   Created: 2023/04/02 18:02:11 by rhamza            #+#    #+#             */
+/*   Updated: 2023/04/02 18:05:24 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
-void set_arg_struct(char **env)
+t_db_list	*ft_dblstlast(t_db_list *db_lst)
 {
-    g_ms.env = env;
-    g_ms.split_path = search_path("PATH", g_ms);
-}
-
-int main(int argc, char **argv, char **env)
-{
-    set_arg_struct(env);
-    return (0);
+	if (!db_lst)
+		return (NULL);
+	while (db_lst->next != NULL)
+		db_lst = db_lst->next;
+	return (db_lst);
 }

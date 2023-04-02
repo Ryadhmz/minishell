@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 17:58:25 by rhamza           ###   ########.fr       */
+/*   Created: 2023/04/02 17:41:29 by rhamza            #+#    #+#             */
+/*   Updated: 2023/04/02 17:55:50 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
-void set_arg_struct(char **env)
+void pwd(void)
 {
-    g_ms.env = env;
-    g_ms.split_path = search_path("PATH", g_ms);
-}
+    char *pwd;
 
-int main(int argc, char **argv, char **env)
-{
-    set_arg_struct(env);
-    return (0);
+    pwd = NULL;
+    pwd = getcwd(pwd, 0);
+    printf("%s\n", pwd);
+    free(pwd);
 }
