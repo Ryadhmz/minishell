@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 00:19:13 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/03 18:29:51 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/03 23:41:42 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,16 @@ static int ft_quotes(char *str, int simple_quote, int double_quote) // si impair
             simple_quote += 1;
         else if(str[0] == 34 && double_quote < 2 && simple_quote == 0) // double quote
             double_quote += 1;
-        if(simple_quote == 2)
+        if(simple_quote == 2 || double_quote == 2)
         {
             if_quote = 1;
             simple_quote = 0;
-        }
-        if(double_quote == 2)
-        {
-            if_quote = 1;
             double_quote = 0;
         }
         str += 1;
     }
     if((simple_quote % 2 == 0 || simple_quote == 0) && (double_quote % 2 == 0 || double_quote == 0))
-        return (0);
+        return (if_quote);
     return (-1);
 }
 #include <stdio.h>
