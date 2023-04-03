@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/03 23:39:09 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 01:04:30 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ t_db_list	*ft_db_first_node(t_db_list *node_lambda);
 
 // parsing
 
-void parsing(char *str);
+int parsing(char *str);
 
 #endif
