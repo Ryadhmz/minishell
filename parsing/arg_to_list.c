@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:03:16 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 01:38:19 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 01:55:51 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int count_carac_arg(char **s) // si pas d'espaces apres ou avant quotes :
         (*s)++;
     while((*s)[i] != ' ' && (*s)[i] != '\0')
     {
-        if((*s)[i] == '\'' || (*s)[i] == '\"')
+        if((*s)[i] == 39 || (*s)[i] == 34)
         {
             quote = (*s)[i++];
             if_quote = 1;
@@ -41,14 +41,41 @@ static int count_carac_arg(char **s) // si pas d'espaces apres ou avant quotes :
     return(i);
 }
 
-// t_db_list arg_to_list(char *arg)
-// {
-//     t_db_list list_arg;
-
-//     list_arg = NULL;
-// }
-
-int main(void)
+static char *insert_arg(char **s)
 {
-    return 0;
+    int size_arg;
+    char *arg;
+    int i;
+    
+    size_arg = count_carac_arg(s);
+    i = 0;
+    arg = NULL;
+    arg = malloc(sizeof(char) * (size_arg + 1));
+    if(!arg)
+        return(NULL);
+    while(i < size_arg)
+    {
+        arg[i] = (*s)[0];
+        i++;
+        (*s)++;
+    }
+    arg[i] = '\0';
+    return(arg);
 }
+
+t_db_list arg_to_list(char *arg)
+{
+    t_db_list *list_arg;
+
+    list_arg = NULL;
+    ft_dblstadd_back(&list_arg, insert_arg(&arg));
+}
+
+// int main(void)
+// {
+//     char *str = "arg1 \'arg2 with spaces\' arg3";
+//     // printf("%d\n", count_carac_arg(&str));
+//     printf("%s\n", insert_arg(&str));
+//     printf("%s\n", insert_arg(&str));
+//     return 0;
+// }
