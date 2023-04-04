@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 02:20:06 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 17:55:10 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 00:44:19 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 void print_list(t_db_list *lst)
 {
-    printf("Print list : ");
     while(lst != NULL)
     {
         printf("%s", lst->data);
-        printf("-->");
-        lst = lst->next;
+        if(lst->next != NULL)
+        {
+            printf(" ");
+            lst = lst->next;
+        }
+        else
+            break;
     }
-    printf("\n");
+    // printf("\n");
 }

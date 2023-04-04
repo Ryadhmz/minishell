@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 18:39:21 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 19:07:27 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 00:13:21 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void free_next(t_db_list **lst)
     if((*lst) == NULL)
         return ;
     current = (*lst);
-    (*lst) = (*lst)->next;
-    free(current);
-    current = NULL;
+    if((*lst)->next != NULL)
+    {
+        (*lst) = (*lst)->next;
+        free(current);
+        current = NULL;
+    }
 }

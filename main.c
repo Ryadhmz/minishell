@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 18:53:26 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 00:23:46 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void ft_prompt(void)
             printf("\n");
             break;
         }
-    printf("Ft_prompt : %s\n", input);
     if(parsing(input) == -1) // parser puis faire qqch avec la commande
         break;
     add_history(input);

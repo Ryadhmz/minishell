@@ -18,7 +18,8 @@ MINISHELL = main.c \
 			utils/ft_strcmp.c \
 			built-in/echo.c \
 			utils/while_carac.c \
-			
+			linked_list/free_next.c \
+			utils/check_last_carac.c	
 			
 CC = @gcc
 

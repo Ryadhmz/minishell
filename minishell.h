@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 19:19:15 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 00:30:35 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,14 @@ char **search_path(char *search, char **env);
 int ft_strlen(const char *str);
 int ft_strcmp(const char *s1, const char *s2);
 int while_carac(char *str, char c);
+int check_last_carac(char *str, char c);
 
 // built-in
 
 void pwd(void);
 int ft_env(t_db_list **list_arg);
 t_db_list *list_env(char **env);
+int ft_echo(t_db_list **list_arg);
 
 // linked_list
 
