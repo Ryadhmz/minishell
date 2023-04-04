@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 01:04:30 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 03:00:40 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,12 @@ t_db_list	*ft_dblstnew(char *data);
 t_db_list	*ft_dblstlast(t_db_list *db_lst);
 void	ft_dblstadd_back(t_db_list **db_lst, char *data);
 t_db_list	*ft_db_first_node(t_db_list *node_lambda);
+void	ft_pop(t_db_list **head);
+void print_list(t_db_list *lst);
 
 // parsing
 
 int parsing(char *str);
+t_db_list *arg_to_list(char *arg);
 
 #endif

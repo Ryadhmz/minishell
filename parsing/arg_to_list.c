@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:03:16 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 01:55:51 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 03:53:32 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ static int count_carac_arg(char **s) // si pas d'espaces apres ou avant quotes :
     }
     while(if_quote == 1 && (*s)[i] != '\0')
     {
-        if((*s)[i++] == quote)
+        if((*s)[i] == quote)
+        {
+            i++;
             break;
+        }
         i++;
     }
     return(i);
@@ -63,19 +66,22 @@ static char *insert_arg(char **s)
     return(arg);
 }
 
-t_db_list arg_to_list(char *arg)
+t_db_list *arg_to_list(char *arg)
 {
     t_db_list *list_arg;
+    t_db_list *last;
 
     list_arg = NULL;
-    ft_dblstadd_back(&list_arg, insert_arg(&arg));
+    while(1)
+    {
+        ft_dblstadd_back(&list_arg, insert_arg(&arg));
+        last = ft_dblstlast(list_arg);
+        if(ft_strlen(last->data) == 0)
+        {
+            ft_pop(&list_arg);
+            break;
+        }
+    }
+    return(list_arg);
 }
-
-// int main(void)
-// {
-//     char *str = "arg1 \'arg2 with spaces\' arg3";
-//     // printf("%d\n", count_carac_arg(&str));
-//     printf("%s\n", insert_arg(&str));
-//     printf("%s\n", insert_arg(&str));
-//     return 0;
-// }
+    // char *str = "arg1\'arg2 with spaces\' arg3";

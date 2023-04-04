@@ -9,7 +9,10 @@ MINISHELL = main.c \
 			linked_list/ft_dblstlast.c \
 			linked_list/ft_dblstnew.c \
 			linked_list/ft_db_first_node.c \
-			parsing/parsing.c
+			parsing/parsing.c \
+			linked_list/ft_pop.c \
+			linked_list/print_lst.c \
+			parsing/arg_to_list.c
 			
 CC = @gcc
 
