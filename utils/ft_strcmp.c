@@ -6,11 +6,13 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 04:00:31 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 15:52:16 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 18:08:43 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strcmp(const char *1, const char *s2)
+#include "../minishell.h"
+
+int ft_strcmp(const char *s1, const char *s2)
 {
     int i;
 

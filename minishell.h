@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 17:21:25 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 18:08:37 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,12 @@ char	**ft_split_boost(char *s);
 void	freebox(char **db_tab);
 char **search_path(char *search, char **env);
 int ft_strlen(const char *str);
+int ft_strcmp(const char *s1, const char *s2);
 
 // built-in
 
 void pwd(void);
-void ft_env(t_db_list **list_arg);
+int ft_env(t_db_list **list_arg);
 t_db_list *list_env(char **env);
 
 // linked_list
@@ -62,5 +63,9 @@ void print_list(t_db_list *lst);
 int parsing(char *str);
 t_db_list *arg_to_list(char *arg);
 char	*ft_strtrim(char const *s1, char const *set);
+
+// run cmd
+
+int check_cmd(t_db_list **list_arg);
 
 #endif
