@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:03:16 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 03:53:32 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 03:54:29 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,3 @@ t_db_list *arg_to_list(char *arg)
     }
     return(list_arg);
 }
-    // char *str = "arg1\'arg2 with spaces\' arg3";

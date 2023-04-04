@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 00:19:13 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 03:32:02 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 03:54:40 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ int parsing(char *str)
     if_quote = ft_quotes(str, 0, 0);
     if(if_quote == -1)
         return(-1);
-    // parsed = ft_split(str, ' ');
     list_arg = arg_to_list(str);
-    print_list(list_arg);
     return (0);
 }
