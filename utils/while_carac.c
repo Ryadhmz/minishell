@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_db_first_node.c                                 :+:      :+:    :+:   */
+/*   while_carac.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 18:52:17 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 18:52:10 by rhamza           ###   ########.fr       */
+/*   Created: 2023/04/04 19:00:20 by rhamza            #+#    #+#             */
+/*   Updated: 2023/04/04 19:17:35 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_db_list	*ft_db_first_node(t_db_list *node_lambda)
+int while_carac(char *str, char c)
 {
-	t_db_list	*cur;
+    int i;
 
-	cur = node_lambda;
-	if (cur == NULL)
-		return (NULL);
-	if (cur->past != NULL)
-	{
-		while (cur->past != NULL)
-			cur = cur->past;
-	}
-	return (cur);
+    i = 0;
+    while(str[i])
+    {
+        if(str[i] != c)
+            return(-1);
+        i++;
+    }
+    return(0);
 }

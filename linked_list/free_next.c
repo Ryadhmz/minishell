@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_db_first_node.c                                 :+:      :+:    :+:   */
+/*   free_next.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 18:52:17 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 18:52:10 by rhamza           ###   ########.fr       */
+/*   Created: 2023/04/04 18:39:21 by rhamza            #+#    #+#             */
+/*   Updated: 2023/04/04 19:07:27 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_db_list	*ft_db_first_node(t_db_list *node_lambda)
+void free_next(t_db_list **lst)
 {
-	t_db_list	*cur;
+    t_db_list *current;
 
-	cur = node_lambda;
-	if (cur == NULL)
-		return (NULL);
-	if (cur->past != NULL)
-	{
-		while (cur->past != NULL)
-			cur = cur->past;
-	}
-	return (cur);
+    if((*lst) == NULL)
+        return ;
+    current = (*lst);
+    (*lst) = (*lst)->next;
+    free(current);
+    current = NULL;
 }

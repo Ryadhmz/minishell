@@ -15,7 +15,10 @@ MINISHELL = main.c \
 			parsing/arg_to_list.c \
 			parsing/ft_strtrim.c \
 			check_cmd/check_cmd.c \
-			utils/ft_strcmp.c
+			utils/ft_strcmp.c \
+			built-in/echo.c \
+			utils/while_carac.c \
+			
 			
 CC = @gcc
 

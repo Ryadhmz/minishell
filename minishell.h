@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 18:09:43 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 19:19:15 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	freebox(char **db_tab);
 char **search_path(char *search, char **env);
 int ft_strlen(const char *str);
 int ft_strcmp(const char *s1, const char *s2);
+int while_carac(char *str, char c);
 
 // built-in
 
@@ -57,6 +58,7 @@ void	ft_dblstadd_back(t_db_list **db_lst, char *data);
 t_db_list	*ft_db_first_node(t_db_list *node_lambda);
 void	ft_pop(t_db_list **head);
 void print_list(t_db_list *lst);
+void free_next(t_db_list **lst);
 
 // parsing
 
