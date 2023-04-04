@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 16:58:14 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 17:21:25 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void print_list(t_db_list *lst);
 
 int parsing(char *str);
 t_db_list *arg_to_list(char *arg);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif

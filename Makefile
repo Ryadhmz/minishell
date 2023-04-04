@@ -12,7 +12,8 @@ MINISHELL = main.c \
 			parsing/parsing.c \
 			linked_list/ft_pop.c \
 			linked_list/print_lst.c \
-			parsing/arg_to_list.c
+			parsing/arg_to_list.c \
+			parsing/ft_strtrim.c
 			
 CC = @gcc
 

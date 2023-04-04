@@ -6,11 +6,28 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:03:16 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 17:00:06 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 17:54:44 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+void trim_if_quotes(t_db_list **list_arg) // enft faut trim que si vraiment y'a une quote
+{
+    while((*list_arg) != NULL)
+    {
+        if((*list_arg)->data[0] == '\"')
+            (*list_arg)->data = ft_strtrim((*list_arg)->data, "\"");
+        else if((*list_arg)->data[0] == '\'')
+            (*list_arg)->data = ft_strtrim((*list_arg)->data, "\'");
+        if((*list_arg)->next != NULL)
+            (*list_arg) = (*list_arg)->next;
+        else
+            break;
+    }
+    if((*list_arg) != NULL)
+    (*list_arg) = ft_db_first_node((*list_arg));
+}
 
 static int count_carac_arg(char **s) // si pas d'espaces apres ou avant quotes : reste le mm argument, les premiers esp
 { 
@@ -62,7 +79,6 @@ static char *insert_arg(char **s)
         i++;
         (*s)++;
     }
-    printf("%s\n", arg);
     arg[i] = '\0';
     return(arg);
 }
@@ -83,5 +99,7 @@ t_db_list *arg_to_list(char *arg)
             break;
         }
     }
+    trim_if_quotes(&list_arg);
+    print_list(list_arg);
     return(list_arg);
 }
