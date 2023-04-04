@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 03:00:40 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 16:58:14 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int ft_strlen(const char *str);
 // built-in
 
 void pwd(void);
-void ft_env(void);
+void ft_env(t_db_list **list_arg);
 t_db_list *list_env(char **env);
 
 // linked_list

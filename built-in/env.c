@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 17:52:46 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 19:02:54 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/04 16:53:14 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_db_list *list_env(char **env)
     return(list_env);
 }
 
-void ft_env(void) // gerer plusieurs env enchainé
+void ft_env(t_db_list **list_arg) // gerer plusieurs env enchainé
 {
     t_db_list *env_cpy;
 
@@ -38,4 +38,5 @@ void ft_env(void) // gerer plusieurs env enchainé
         printf("%s\n", env_cpy->data);
         env_cpy = env_cpy->next;
     }
+    (*list_arg) = (*list_arg)->next;
 }
