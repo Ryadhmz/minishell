@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 18:12:51 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/05 00:50:14 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 01:09:25 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ int ft_echo(t_db_list **list_arg) // echo -> check si -n -> tant que -n continue
     free_next(list_arg);
     while((*list_arg)->data[0] == '-')
     {
-        printf("List arg data : %s\n", (*list_arg)->data);
         if(while_carac(((*list_arg)->data), 'n') == 0)
         {
-            printf("entre n\n");
             if_bn = 1;
             free_next(list_arg);
             if((*list_arg)->next == NULL)
