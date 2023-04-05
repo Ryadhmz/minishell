@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:03:16 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/05 07:48:27 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 08:03:47 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,5 @@ t_db_list *arg_to_list(char *arg)
     }
     trim_if_quotes(&list_arg);
     list_arg = ft_db_first_node(list_arg);
-    print_list(list_arg);
     return(list_arg);
 }
