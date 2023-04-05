@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 02:17:22 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 03:15:26 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 07:15:59 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_pop(t_db_list **head)
         return;
     if ((*head)->next == NULL) 
 	{
+        free((*head)->data);
         free(*head);
         *head = NULL;
         return;
@@ -33,6 +34,7 @@ void	ft_pop(t_db_list **head)
         current = current->next;
     }
     previous->next = NULL;
+    free(current->data);
     free(current);
 	current = NULL;
 }

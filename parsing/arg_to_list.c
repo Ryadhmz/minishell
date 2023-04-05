@@ -6,27 +6,44 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:03:16 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/05 02:36:53 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 07:39:24 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void trim_if_quotes(t_db_list **list_arg) // enft faut trim que si vraiment y'a une quote
+void trim_if_quotes(t_db_list **list_arg)
 {
+    int i;
+
+    i = 0;
     while((*list_arg) != NULL)
     {
-        if((*list_arg)->data[0] == '\"')
-            (*list_arg)->data = ft_strtrim((*list_arg)->data, "\"");
-        else if((*list_arg)->data[0] == '\'')
-            (*list_arg)->data = ft_strtrim((*list_arg)->data, "\'");
+        while(((*list_arg)->data[i] != '\"' && (*list_arg)->data[i] != '\'' && (*list_arg)->data[i]))
+            i++;
+        // if(i == (ft_strlen((*list_arg)->data) - 1) || i == 0)
+        //     return;
+        if((*list_arg)->data[i] == '\'')
+            (*list_arg)->data = remove_carac((*list_arg)->data, '\'');
+        else if((*list_arg)->data[i] == '\"')
+            (*list_arg)->data = remove_carac((*list_arg)->data, '\"');
         if((*list_arg)->next != NULL)
+        {
+            i = 0;
             (*list_arg) = (*list_arg)->next;
+        }
         else
             break;
     }
     if((*list_arg) != NULL)
         (*list_arg) = ft_db_first_node((*list_arg));
+}
+
+static int count_carac_arg_t(char **s, int if_quote, int i, char quote)
+{
+    while((*s)[i] != ' ' && (*s)[i] != '\0')
+        i++;
+    return(i);
 }
 
 static int count_carac_arg(char **s, int if_quote, int i, char quote) // si pas d'espaces apres ou avant quotes : reste le mm argument, les premiers esp
@@ -48,11 +65,12 @@ static int count_carac_arg(char **s, int if_quote, int i, char quote) // si pas 
         if((*s)[i] == quote)
         {
             i++;
+            if_quote = 2;
             break;
         }
         i++;
     }
-    return(i);
+    return(count_carac_arg_t(s, if_quote, i, quote));
 }
 
 static char *insert_arg(char **s)
@@ -74,6 +92,7 @@ static char *insert_arg(char **s)
         (*s)++;
     }
     arg[i] = '\0';
+    // printf("Arg : %s\n", arg);
     return(arg);
 }
 
@@ -93,7 +112,8 @@ t_db_list *arg_to_list(char *arg)
             break;
         }
     }
-    trim_if_quotes(&list_arg);
+    // trim_if_quotes(&list_arg);
+    list_arg = ft_db_first_node(list_arg);
     print_list(list_arg);
     return(list_arg);
 }

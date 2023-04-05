@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 02:16:39 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/05 02:35:16 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 07:05:28 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ char *new_str_without_carac(char *str, char *new_str, char c)
         i += 1;
     }
     new_str[i] = '\0';
+    free(str);
     return(new_str);
 }
 
 char *remove_carac(char *str, char c)
 {
+    printf("Entre remove carac : \n");
     int i;
     int good_carac;
     char *new_str;
@@ -53,5 +55,5 @@ char *remove_carac(char *str, char c)
     if(!new_str)
         return(NULL);
     i = 0;
-    return(new_str_without_carac(str, c, ))
+    return(new_str_without_carac(str, new_str, c));
 }
