@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:03:16 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/04 17:55:54 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 02:36:53 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,11 @@ void trim_if_quotes(t_db_list **list_arg) // enft faut trim que si vraiment y'a 
             break;
     }
     if((*list_arg) != NULL)
-    (*list_arg) = ft_db_first_node((*list_arg));
+        (*list_arg) = ft_db_first_node((*list_arg));
 }
 
-static int count_carac_arg(char **s) // si pas d'espaces apres ou avant quotes : reste le mm argument, les premiers esp
-{ 
-    char quote;
-    int i;
-    int if_quote;
-
-    i = 0;
-    if_quote = 0;
+static int count_carac_arg(char **s, int if_quote, int i, char quote) // si pas d'espaces apres ou avant quotes : reste le mm argument, les premiers esp
+{   
     while((*s)[0] == ' ' && (*s)[0] != '\0')
         (*s)++;
     while((*s)[i] != ' ' && (*s)[i] != '\0')
@@ -67,7 +61,7 @@ static char *insert_arg(char **s)
     char *arg;
     int i;
     
-    size_arg = count_carac_arg(s);
+    size_arg = count_carac_arg(s, 0, 0, 0);
     i = 0;
     arg = NULL;
     arg = malloc(sizeof(char) * (size_arg + 1));
@@ -100,5 +94,6 @@ t_db_list *arg_to_list(char *arg)
         }
     }
     trim_if_quotes(&list_arg);
+    print_list(list_arg);
     return(list_arg);
 }
