@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:03:16 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/05 07:39:24 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/05 07:48:27 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void trim_if_quotes(t_db_list **list_arg)
     {
         while(((*list_arg)->data[i] != '\"' && (*list_arg)->data[i] != '\'' && (*list_arg)->data[i]))
             i++;
-        // if(i == (ft_strlen((*list_arg)->data) - 1) || i == 0)
-        //     return;
         if((*list_arg)->data[i] == '\'')
             (*list_arg)->data = remove_carac((*list_arg)->data, '\'');
         else if((*list_arg)->data[i] == '\"')
@@ -92,7 +90,6 @@ static char *insert_arg(char **s)
         (*s)++;
     }
     arg[i] = '\0';
-    // printf("Arg : %s\n", arg);
     return(arg);
 }
 
@@ -112,7 +109,7 @@ t_db_list *arg_to_list(char *arg)
             break;
         }
     }
-    // trim_if_quotes(&list_arg);
+    trim_if_quotes(&list_arg);
     list_arg = ft_db_first_node(list_arg);
     print_list(list_arg);
     return(list_arg);
