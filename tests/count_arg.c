@@ -3,11 +3,6 @@
 int main(int argc, char **argv)
 {
     printf("%d\n", argc);
-    int i = i;
-    while(argv[i])
-    {
-        printf("%s\n", argv[i]);
-        i++;
-    }
+    printf("%s\n", argv[1]);
     return 0;
 }
