@@ -1,4 +1,8 @@
-MINISHELL = main.c \
+CC = @gcc
+
+NAME = minishell
+
+SRCS = 		main.c \
 			utils/ft_split.c \
 			utils/ft_split_boost.c \
 			utils/ft_strlen.c \
@@ -26,27 +30,26 @@ MINISHELL = main.c \
 			linked_list/free_list.c \
 			signal/signal.c
 			
-CC = @gcc
+INC = -I /Users/$$USER/.brew/opt/readline/include
 
-FLAGS = -lreadline -Wall -Werror -Wextra
+LIB = -lreadline -L/Users/$$USER/.brew/opt/readline/lib
 
-MINISHELL_NAME = minishell
+OBJS = $(SRCS:.c=.o)
 
-MINISHELL_SRC = $(MINISHELL)
+# .c.o:
+# 	${CC} ${CFLAGS}  -c ${<:.c=.o}
 
-MINISHELL_OBJS = $(MINISHELL_SRC:.c=.o)
+${NAME}: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIB) ${INC} -o $(NAME)
 
-all: $(MINISHELL_NAME)
+all: $(NAME)
 
-minishell: $(MINISHELL_OBJS)
-	@$(CC) $(FLAGS) $(MINISHELL_OBJS) -o $(MINISHELL_NAME)
-
-bonus: all
-
-clean:
-	@rm -rf $(MINISHELL_OBJS)
+clean :
+	@rm -rf $(OBJS)
 
 fclean: clean
-	@rm -rf $(MINISHELL_NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean
