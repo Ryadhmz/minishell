@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 00:19:13 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/08 00:09:38 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/11 15:23:28 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int parsing(char *str)
     if(if_quote == -1)
         return(-1);
     list_arg = arg_to_list(str);
+    print_list(list_arg);
     // check_cmd(&list_arg); doit être géré après les pipes
     return (0);
 }
