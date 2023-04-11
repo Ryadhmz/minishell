@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/11 15:28:25 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/11 18:11:15 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <fcntl.h>
 
 typedef struct db_linked_list
 {

@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 00:19:13 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/11 16:17:09 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/11 17:55:38 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,11 @@ int parsing(char *str)
         return(-1);
     }
     list_arg = arg_to_list(str);
-    if(check_pipe(list_arg) == -1 || check_nb_pipe(l9i=istlast_arg_pipe(list_arg) == -1)
+    if(check_pipe(list_arg) == -1 || last_arg_pipe(list_arg) == -1)
+    {
+        printf("Erreur pipe\n"); 
         return(-1);
+    }
     print_list(list_arg);
     // check_cmd(&list_arg); doit être géré après les pipes
     return (0);

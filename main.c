@@ -6,13 +6,20 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/11 15:28:32 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/11 18:08:48 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void ft_prompt(void)
+void add_my_history(char *input, int fd)
+{
+    add_history(input);
+    write(fd, input, ft_strlen(input));   
+    write(fd, "\n", 1);
+}
+
+static void ft_prompt(int fd)
 {
     char *input;
 
@@ -24,10 +31,13 @@ static void ft_prompt(void)
             printf("\n");
             break;
         }
-    if(parsing(input) == -1) // parser puis faire qqch avec la commande
-        break;
-    add_history(input);
-    free(input);
+        add_my_history(input, fd);
+        if(parsing(input) == -1) // parser puis faire qqch avec la commande
+        {
+            free(input);
+            ft_prompt(fd);
+        }
+        free(input);
     }
 }
 
@@ -39,7 +49,9 @@ static void set_arg_struct(char **env)
 
 int main(int argc, char **argv, char **env)
 {
+    int fd;
     set_arg_struct(env);
-    ft_prompt();
+    fd = open(".history", O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXG);
+    ft_prompt(fd);
     return (0);
 }
