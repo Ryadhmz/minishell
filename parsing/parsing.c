@@ -6,11 +6,57 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 00:19:13 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/11 15:23:28 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/11 16:17:09 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+int last_arg_pipe(t_db_list *list_arg)
+{
+    t_db_list *last_node;
+    char *str;
+    
+    last_node = ft_dblstlast(list_arg);
+    str = last_node->data;
+
+    if(str[0] == '|')
+        return(-1);
+    return (0);
+}
+
+int check_nb_pipe(char *str)
+{
+    int i;
+    int nb_pipe;
+
+    i = 0;
+    nb_pipe = 0;
+
+    while(str[i])
+    {
+        if(str[i] != '|')
+            break;
+        i++;
+        nb_pipe++;
+    }
+    if(nb_pipe > 2)
+        return(-1);
+    return (0);
+}
+
+int check_pipe(t_db_list *list_arg)
+{
+    char *str;
+    while(list_arg)
+    {
+        str = list_arg->data;
+        if(check_nb_pipe(str) == -1)
+            return (-1);
+        list_arg = list_arg->next;
+    }
+    return (0);
+}
 
 // check si le nb de guillements et bon puis mettre tt les arguments dans une liste chainee arg
 
@@ -46,8 +92,13 @@ int parsing(char *str)
     
     if_quote = ft_quotes(str, 0, 0);
     if(if_quote == -1)
+    {
+        printf("unclosed paranthesis\n");
         return(-1);
+    }
     list_arg = arg_to_list(str);
+    if(check_pipe(list_arg) == -1 || check_nb_pipe(l9i=istlast_arg_pipe(list_arg) == -1)
+        return(-1);
     print_list(list_arg);
     // check_cmd(&list_arg); doit être géré après les pipes
     return (0);
