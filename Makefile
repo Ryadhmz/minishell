@@ -2,7 +2,9 @@ CC = @gcc
 
 NAME = minishell
 
-SRCS = 		main.c \
+CFLAGS =
+
+SRCS = 	main.c \
 			utils/ft_split.c \
 			utils/ft_split_boost.c \
 			utils/ft_strlen.c \
@@ -30,17 +32,17 @@ SRCS = 		main.c \
 			linked_list/free_list.c \
 			signal/signal.c
 			
-INC = -I /Users/$$USER/.brew/opt/readline/include
+LIB = -lreadline -L /Users/$$USER/.brew/opt/readline/lib
 
-LIB = -lreadline -L/Users/$$USER/.brew/opt/readline/lib
+INC = -I /Users/$$USER/.brew/opt/readline/include
 
 OBJS = $(SRCS:.c=.o)
 
-# .c.o:
-# 	${CC} ${CFLAGS}  -c ${<:.c=.o}
+.c.o:
+	${CC} ${CFLAGS} ${INC} -g3 -c $< -o ${<:.c=.o}
 
 ${NAME}: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIB) ${INC} -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
 
 all: $(NAME)
 
