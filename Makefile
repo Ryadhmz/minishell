@@ -20,7 +20,10 @@ MINISHELL = main.c \
 			utils/while_carac.c \
 			linked_list/free_next.c \
 			utils/check_last_carac.c \
-			parsing/remove_carac.c	
+			parsing/remove_carac.c	\
+			parsing/check_carac.c \
+			parsing/check_carac_two.c \
+			linked_list/free_list.c \
 			
 CC = @gcc
 

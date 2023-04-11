@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/11 18:08:48 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/11 23:58:30 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void add_my_history(char *input, int fd)
 {
     add_history(input);
-    write(fd, input, ft_strlen(input));   
+    write(fd, input, ft_strlen(input));
     write(fd, "\n", 1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/11 18:11:15 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/11 23:57:03 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_db_list	*ft_db_first_node(t_db_list *node_lambda);
 void	ft_pop(t_db_list **head);
 void print_list(t_db_list *lst);
 void free_next(t_db_list **lst);
+void	free_list(t_db_list **head);
 
 // parsing
 
@@ -69,6 +70,12 @@ int parsing(char *str);
 t_db_list *arg_to_list(char *arg);
 char	*ft_strtrim(char const *s1, char const *set);
 char *remove_carac(char *str, char c);
+int last_arg_and(t_db_list *list_arg);
+int check_and(t_db_list *list_arg);
+int check_nb_and(char *str);
+int check_pipe(t_db_list *list_arg);
+int check_nb_pipe(char *str);
+int last_arg_pipe(t_db_list *list_arg);
 
 // run cmd
 
