@@ -24,6 +24,7 @@ MINISHELL = main.c \
 			parsing/check_carac.c \
 			parsing/check_carac_two.c \
 			linked_list/free_list.c \
+			signal/signal.c
 			
 CC = @gcc
 

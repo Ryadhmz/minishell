@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/11 23:57:03 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/12 00:36:36 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <fcntl.h>
+#include <signal.h>
 
 typedef struct db_linked_list
 {
@@ -80,5 +81,10 @@ int last_arg_pipe(t_db_list *list_arg);
 // run cmd
 
 int check_cmd(t_db_list **list_arg);
+
+// signal
+
+void ft_signal(void);
+
 
 #endif

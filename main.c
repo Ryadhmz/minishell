@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/11 23:58:30 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/12 00:28:04 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ static void set_arg_struct(char **env)
 int main(int argc, char **argv, char **env)
 {
     int fd;
+    ft_signal();
     set_arg_struct(env);
-    fd = open(".history", O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXG);
+    fd = open(".history", O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXO);
     ft_prompt(fd);
     return (0);
 }
