@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/12 02:18:42 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/12 18:43:10 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main(int argc, char **argv, char **env)
     int fd;
     
     set_arg_struct(env);
-    fd = open(".history", O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXO);
+    fd = open(".history.txt", O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXO);
     ft_signal();
     ft_prompt(fd);
     return (0);
