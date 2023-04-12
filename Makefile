@@ -7,7 +7,6 @@ CFLAGS =
 SRCS = 	main.c \
 			utils/ft_split.c \
 			utils/ft_split_boost.c \
-			utils/ft_strlen.c \
 			utils/search_path.c \
 			built-in/pwd.c \
 			built-in/env.c \
@@ -30,7 +29,9 @@ SRCS = 	main.c \
 			parsing/check_carac.c \
 			parsing/check_carac_two.c \
 			linked_list/free_list.c \
-			signal/signal.c
+			signal/signal.c \
+			get_next_line/get_next_line.c \
+			get_next_line/get_next_line_utils.c
 			
 LIB = -lreadline -L /Users/$$USER/.brew/opt/readline/lib
 

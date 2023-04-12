@@ -6,11 +6,23 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/12 18:43:10 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/12 19:02:06 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void reload_history(int fd)
+{
+    char *str_ret;
+
+    str_ret = NULL;
+    while((str_ret = get_next_line(fd)) != NULL)
+    {
+        str_ret = remove_carac(str_ret, '\n');
+        add_history(str_ret);
+    }
+}
 
 void add_my_history(char *input, int fd)
 {
@@ -53,6 +65,7 @@ int main(int argc, char **argv, char **env)
     
     set_arg_struct(env);
     fd = open(".history.txt", O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXO);
+    reload_history(fd);
     ft_signal();
     ft_prompt(fd);
     return (0);

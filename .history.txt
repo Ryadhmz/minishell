@@ -1,6 +1,2 @@
-Ouais
- d'accord
-ok "d'accord"
-cord
-inishell gpt comment on code un strlen?
-minishell gpt comment on code un ft_strlen?
+salut
+bien ?? moi ouais bg

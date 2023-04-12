@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/12 18:39:24 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/12 18:51:03 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <stdbool.h>
 #include <dirent.h>
 #include <string.h>
+#include "get_next_line/get_next_line.h"
 
 typedef struct db_linked_list
 {
