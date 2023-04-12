@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/12 01:45:07 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/12 02:18:42 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void add_my_history(char *input, int fd)
     write(fd, "\n", 1);
 }
 
-static void ft_prompt(int fd)
+void ft_prompt(int fd)
 {
     char *input;
 
@@ -50,9 +50,10 @@ static void set_arg_struct(char **env)
 int main(int argc, char **argv, char **env)
 {
     int fd;
-    ft_signal();
+    
     set_arg_struct(env);
     fd = open(".history", O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXO);
+    ft_signal();
     ft_prompt(fd);
     return (0);
 }

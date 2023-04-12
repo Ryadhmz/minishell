@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/12 01:01:07 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/12 02:19:06 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct mini_struct
 {
     t_db_list *env;
     char **split_path;
+	int fd;
 }   t_mini_struct;
 
 t_mini_struct g_ms;
@@ -90,5 +91,8 @@ int check_cmd(t_db_list **list_arg);
 
 void ft_signal(void);
 
+// prompt
+
+void ft_prompt(int fd);
 
 #endif
