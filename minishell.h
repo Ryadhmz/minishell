@@ -6,15 +6,19 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/12 18:51:03 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/23 09:38:16 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-#include <stdio.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE (1000)
+# endif
+
 #include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -24,7 +28,7 @@
 #include <stdbool.h>
 #include <dirent.h>
 #include <string.h>
-#include "get_next_line/get_next_line.h"
+// #include "globals.c"
 
 typedef struct db_linked_list
 {
@@ -95,5 +99,18 @@ void ft_signal(void);
 // prompt
 
 void ft_prompt(int fd);
+
+// gnl
+
+char	*get_next_line(int fd);
+char	*return_line(char *stash);
+int		check_of_line(char *stash);
+char	*return_without_stock(int fd, char *stash);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strlen(const char *str);
+char	*clean_stash(char *stash);
+void	*ft_calloc(size_t count, size_t size);
+void	ft_bzero(void *s, size_t n);
+char	*free_return(char **str);
 
 #endif

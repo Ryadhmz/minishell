@@ -31,7 +31,7 @@ SRCS = 	main.c \
 			linked_list/free_list.c \
 			signal/signal.c \
 			get_next_line/get_next_line.c \
-			get_next_line/get_next_line_utils.c
+			get_next_line/get_next_line_utils.c \
 			
 LIB = -lreadline -L /Users/$$USER/.brew/opt/readline/lib
 
