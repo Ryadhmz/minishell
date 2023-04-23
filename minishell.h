@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:38 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/23 09:38:16 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/23 09:56:01 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct mini_struct
 	int fd;
 }   t_mini_struct;
 
-t_mini_struct g_ms;
+// t_mini_struct g_ms;
 
 // utils
 
@@ -60,7 +60,7 @@ int check_last_carac(char *str, char c);
 // built-in
 
 void pwd(void);
-int ft_env(t_db_list **list_arg);
+int ft_env(t_db_list **list_arg, t_mini_struct *g_ms);
 t_db_list *list_env(char **env);
 int ft_echo(t_db_list **list_arg);
 
@@ -90,7 +90,8 @@ int last_arg_pipe(t_db_list *list_arg);
 
 // run cmd
 
-int check_cmd(t_db_list **list_arg);
+int check_cmd(t_db_list **list_arg, t_mini_struct *g_ms);
+
 
 // signal
 

@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 01:54:15 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/23 09:29:10 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/23 09:56:13 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,24 @@ void ft_prompt(int fd)
     }
 }
 
-static void set_arg_struct(char **env)
+static t_mini_struct set_arg_struct(char **env)
 {
+    t_mini_struct g_ms;
+    
     g_ms.env = list_env(env);
     g_ms.split_path = search_path("PATH", env);
+    return (g_ms);
 }
 
 int main(int argc, char **argv, char **env)
 {
     int fd;
+    t_mini_struct g_ms;
     
-    set_arg_struct(env);
+    g_ms = set_arg_struct(env);
     fd = open(".history.txt", O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXO);
     reload_history(fd);
-    ft_signal();
+    // ft_signal();
     ft_prompt(fd);
     return (0);
 }

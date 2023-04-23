@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 17:52:46 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/06 00:10:07 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/23 09:45:27 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ t_db_list *list_env(char **env)
     return(list_env);
 }
 
-int ft_env(t_db_list **list_arg) // gerer plusieurs env enchainé
+int ft_env(t_db_list **list_arg, t_mini_struct *g_ms) // gerer plusieurs env enchainé
 {
     t_db_list *env_cpy;
 
-    env_cpy = g_ms.env;
+    env_cpy = g_ms->env;
     env_cpy = ft_db_first_node(env_cpy);
     while(env_cpy != NULL)
     {

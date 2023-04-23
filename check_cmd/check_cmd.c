@@ -6,18 +6,18 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 03:56:49 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/05 06:28:38 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/23 09:48:02 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int check_cmd(t_db_list **list_arg)
+int check_cmd(t_db_list **list_arg, t_mini_struct *g_ms)
 {
     if((*list_arg) == NULL)
         return(1);
     if(ft_strcmp("env", (*list_arg)->data) == 0)
-        ft_env(list_arg);
+        ft_env(list_arg, g_ms);
     else if(ft_strcmp("pwd", (*list_arg)->data) == 0)
         pwd();
     else if(ft_strcmp("echo", (*list_arg)->data) == 0)
